@@ -1,16 +1,18 @@
 export const initialStore=()=>{
   return{
     message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
+    contacts: [
+      { name: "Emily Downs",
+        phone:"417-436-8756",
+        email:"edowns@gmail.com",
+        address:"467 Duck Run Rd",
+        id:18
       },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
+      { name:"Luke Downs",
+        phone:"417-498-8756",
+        email:"ldowns@gmail.com",
+        address:"487 Duck Run Rd",
+        id:19
       }
     ]
   }

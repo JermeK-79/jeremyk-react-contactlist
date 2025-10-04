@@ -1,0 +1,11 @@
+
+.card{
+    height: 10em;
+    width: 50em;
+    margin: .5em auto;
+
+}
+.card-image{
+    height: 10em;
+    width: 10em;
+}
