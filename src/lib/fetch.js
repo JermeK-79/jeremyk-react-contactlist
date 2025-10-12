@@ -16,7 +16,7 @@ export const fetchAllContacts = async(dispatch) => {
             console.error("Error getting agenda. Check if URL is correct or if agenda exists.", error);
         }
 }
-export const addcontact = async(name, address, phone, email, dispatch) => {
+export const addContact = async(name, address, phone, email, dispatch) => {
     const newContact = {
         name: name,
         address: address,

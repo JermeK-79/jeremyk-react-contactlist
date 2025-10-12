@@ -1,7 +1,7 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { addcontact } from "../lib/fetch";
+import { addContact } from "../lib/fetch";
 
 
 export const AddContact = () => {
@@ -57,7 +57,7 @@ export const AddContact = () => {
                             className="form-label" 
                             >Phone</label>
                             <input 
-                            type="text" 
+                            type="tel" 
                             className="form-control" 
                             id="contactPhone" 
                             value={contactPhone}
@@ -70,7 +70,7 @@ export const AddContact = () => {
                             className="form-label" 
                             >e-mail</label>
                             <input 
-                            type="text" 
+                            type="email" 
                             className="form-control" 
                             id="contactEmail" 
                             value={contactEmail}
