@@ -3,6 +3,16 @@ export const fetchAllContacts = async(dispatch) => {
     try {
         const response = await fetch('https://playground.4geeks.com/contact/agendas/jeremyk');
         
+        if(response.status === 404){
+            console.log('Agenda not found, creating it...');
+            await createAgenda(dispatch);
+            dispatch({
+                type: 'fetchedContacts',
+                payload: [],
+            });
+            return { contacts: [] };
+        }
+        
         if(!response.ok){
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -15,7 +25,7 @@ export const fetchAllContacts = async(dispatch) => {
         return data;
     }
     catch (error) {
-        console.error("Error getting agenda. Check if URL is correct or if agenda exists.", error);
+        console.error("Error getting agenda.", error);
         dispatch({
             type: 'fetchError',
             payload: error.message,
@@ -50,7 +60,7 @@ export const addContact = async(name, address, phone, email, dispatch) => {
         const data = await response.json();
         dispatch({
             type: 'createdContact',
-            payload: data,
+            payload: data, 
         });
         return data;
     }
@@ -129,5 +139,28 @@ export const deleteContact = async(id, dispatch) => {
             payload: error.message,
         });
         return false;
+    }
+}
+
+export const createAgenda = async(dispatch) => {
+    try {
+        const response = await fetch('https://playground.4geeks.com/contact/agendas/jeremyk', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        if(!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Agenda created successfully:', data);
+        return data;
+    }
+    catch (error) {
+        console.error("Error creating agenda.", error);
+        return null;
     }
 }

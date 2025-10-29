@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ContactCard } from "../components/ContactCard";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useEffect, useState } from "react";
-import { fetchAllContacts, deleteContact } from "../lib/fetch";
+import { fetchAllContacts, deleteContact,} from "../lib/fetch";
 
 export const Contact = () => {
     const { store, dispatch } = useGlobalReducer();
