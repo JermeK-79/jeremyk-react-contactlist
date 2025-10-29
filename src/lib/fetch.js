@@ -50,7 +50,7 @@ export const addContact = async(name, address, phone, email, dispatch) => {
         const data = await response.json();
         dispatch({
             type: 'createdContact',
-            payload: data, // Use the data from API which includes the ID
+            payload: data,
         });
         return data;
     }

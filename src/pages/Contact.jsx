@@ -26,7 +26,6 @@ export const Contact = () => {
         }
     };
     
-    // Loading state
     if (!store || !store.contacts || store.contacts.length === 0) {
         return (
             <div className="container">
@@ -35,26 +34,25 @@ export const Contact = () => {
         );
     }
     
-    // Contacts list (simple version matching your structure)
     return (
         <div className="container">
             {store.contacts.map(contact => (
-                <div className="card d-inline-flex flex-row" key={contact.id}>
+                <div className="card d-flex flex-row" key={contact.id}>
                     <ContactCard 
                         name={contact.name}
                         address={contact.address}
                         phone={contact.phone}
                         email={contact.email} 
                     />
-                    <div className="btn-group">
+                    <div className="btn-group ms-auto align-items-center gap-3">
                         <Link 
                             to={`/edit-contact/${contact.id}`}
-                            className="btn btn-outline-primary"
+                            className="btn"
                         >
-                            <i className="fas fa-edit"></i> Edit
+                            <i className="fas fa-edit"></i>
                         </Link>
                         <button 
-                            className="btn btn-outline-danger"
+                            className="btn me-3"
                             onClick={() => handleDelete(contact.id)}
                             disabled={deletingId === contact.id}
                         >
@@ -65,7 +63,7 @@ export const Contact = () => {
                                 </>
                             ) : (
                                 <>
-                                    <i className="fas fa-trash"></i> Delete
+                                    <i className="fas fa-trash"></i>
                                 </>
                             )}
                         </button>
